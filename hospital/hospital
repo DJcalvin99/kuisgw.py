@@ -1,0 +1,42 @@
+class Node:
+    def __init__(self, val = None):
+        self.val = val
+        self.next = None
+
+
+class MyLinkedList:
+    def __init__(self):
+        self.main_value = None
+
+    def insert_first(self, new_value):
+        new_node = Node(new_value)
+        new_node .next = self.main_value
+        self.main_value  = new_node
+
+    def insert_last(self, new_value):
+        new_node = Node(new_value)
+        last_node = self.main_value
+        while last_node.next:
+            last_node = last_node.next
+
+        last_node.next = new_node
+
+    def traverse(self):
+        dataku = self.main_value
+        while dataku is not None:
+            print(dataku.val)
+            dataku = dataku.next
+
+
+myList = MyLinkedList()
+myList.main_value = Node(13)
+
+n2 = Node(14)
+n3 = Node(15)
+myList.main_value.next = n2
+n2.next = n3
+
+myList.insert_first(12)
+myList.insert_last(17)
+
+myList.traverse()
